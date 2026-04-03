@@ -29,13 +29,15 @@ const MyOrders = () => {
     Cancelled: "bg-red-200 text-red-700",
   };
   return (
-    <div className="pt-[80px] min-h-screen flex flex-col">
+    <div className="pt-[80px] flex flex-col">
       {/* CONTENT */}
       <div className="flex-1 max-w-6xl mx-auto p-5 w-full">
         <h1 className="text-2xl font-semibold mb-6">My Orders</h1>
 
         {orders?.length === 0 && !loading && (
-          <p className="text-gray-500">No orders found</p>
+          <p className="text-center font-bold text-3xl text-gray-500">
+            No Orders Found!
+          </p>
         )}
 
         {orders?.map((order) => (
