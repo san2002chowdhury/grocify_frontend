@@ -8,13 +8,15 @@ const BottomBanner = () => {
         src={assest.bottomBanner}
         alt="banner"
         className="w-full hidden md:block"
-        loading="lazy"
+        loading="eager"
+        fetchpriority="high"
       />
       <img
         src={assest.bottomBannerSm}
         alt="banner"
         className="w-full md:hidden"
-        loading="lazy"
+        loading="eager"
+        fetchpriority="high"
       />
       <div className="absolute inset-0 flex flex-col items-center md:items-end md:justify-center  pt-16 md:pt-0 md:pr-24">
         <div className="w-[90%] md:w-[45%] lg:w-[35%]">
