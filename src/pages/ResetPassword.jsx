@@ -5,6 +5,7 @@ import { resetUserPassword } from "../redux/features/user/userThunks";
 import { useState } from "react";
 import { useEffect } from "react";
 import { assest } from "../assets/asset";
+import { resetError } from "../redux/features/user/userSlice";
 
 const ResetPassword = () => {
   const navigate = useNavigate();
@@ -118,7 +119,6 @@ const ResetPassword = () => {
             </p>
           </div>
 
-          {/* Confirm Password */}
           <div>
             <div className="flex items-center border bg-indigo-500/5 border-gray-500/10 rounded gap-1 pl-2">
               <img src={assest.loginSvgIcon} alt="icon" />

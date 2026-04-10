@@ -44,7 +44,7 @@ const ContactPage = () => {
     setErrors({});
     dispatch(sendMessage(formData))
       .unwrap()
-      .then((result) => console.log(result))
+      .then(() => {})
       .catch(() => {})
       .finally(() =>
         setFormData({

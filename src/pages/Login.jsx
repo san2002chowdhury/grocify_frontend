@@ -16,9 +16,6 @@ const Login = () => {
 
   const [errors, setErrors] = useState({});
   const { loading, error, token } = useSelector((state) => state?.user);
-
-  console.log(loading);
-
   const handleChange = (e) => {
     setLoginData({
       ...loginData,

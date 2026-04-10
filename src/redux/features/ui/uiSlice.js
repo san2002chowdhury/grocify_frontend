@@ -8,9 +8,7 @@ const uiSlice = createSlice({
     initialState: {
         globalLoading: false,
     },
-    reducers: {
-
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addMatcher((action) => isPending(action) && notExcluded(action), (state) => {

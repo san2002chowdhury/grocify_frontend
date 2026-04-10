@@ -89,8 +89,6 @@ const productSlice = createSlice({
                 state.error = null;
             })
             .addCase(getProductDetails.fulfilled, (state, action) => {
-                console.log(action);
-
                 state.loading = true;
                 state.error = null;
                 state.products = action.payload.relatedProducts;

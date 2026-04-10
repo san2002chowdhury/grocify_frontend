@@ -9,7 +9,6 @@ export const getAllCategories = createAsyncThunk("category/all", async (_, { rej
         return res.data;
     }
     catch (e) {
-        console.log(e?.response?.data?.message);
         toast.error(e?.response?.data?.message || "Something went wrong!");
         return rejectWithValue(
             e?.response?.data?.message || "Something went wrong!"

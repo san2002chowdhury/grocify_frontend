@@ -52,8 +52,6 @@ const Orders = () => {
                       {order.totalAmount}
                     </p>
                   </div>
-
-                  {/* Status */}
                   <select
                     value={order.status}
                     onChange={(e) =>
@@ -78,8 +76,6 @@ const Orders = () => {
                     )}
                   </select>
                 </div>
-
-                {/* PRODUCTS LIST (BOTTOM) */}
                 <div className="border-t pt-2">
                   {order.items.map((item) => (
                     <p key={item.product} className="text-sm text-gray-600">

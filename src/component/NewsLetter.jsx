@@ -11,13 +11,11 @@ const NewsLetter = () => {
     setLoading(true);
     try {
       const res = await axios.post(`${API_URL}newsletter/subscribe`, { email });
-      console.log(res);
       if (res.data.success) {
         toast.success(res.data.message);
         setEmail("");
       }
     } catch (e) {
-      console.log(e);
       toast.error(e.res.data.message);
     } finally {
       setLoading(false);

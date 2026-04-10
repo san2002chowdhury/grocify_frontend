@@ -13,8 +13,6 @@ const contactSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(sendMessage.pending, (state) => {
-                console.log(state);
-
                 state.loading = true;
                 state.error = null;
             })

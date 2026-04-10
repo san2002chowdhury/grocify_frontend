@@ -15,7 +15,6 @@ const cartSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(addProductToCart.pending, (state, action) => {
-                console.log(action)
                 state.loading = true;
                 state.loadingId = action.meta.arg.productId;
                 state.error = null;
@@ -25,7 +24,6 @@ const cartSlice = createSlice({
                 state.error = null;
                 state.loadingId = null;
                 state.cart = action.payload.cart;
-                console.log(action.payload.cart);
             })
             .addCase(addProductToCart.rejected, (state, action) => {
                 state.loading = false;

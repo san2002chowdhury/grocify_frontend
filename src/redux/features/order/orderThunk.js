@@ -30,8 +30,6 @@ export const createOpOrder = createAsyncThunk("order/create/op", async (data, { 
                 Authorization: `Bearer ${token}`
             }
         });
-        console.log(res.data);
-
         return res.data;
     }
     catch (e) {
@@ -45,7 +43,6 @@ export const createOpOrder = createAsyncThunk("order/create/op", async (data, { 
 export const verifyUserPayment = createAsyncThunk("order/verify", async (data, { rejectWithValue }) => {
     try {
         const res = await axios.post(`${API_URL}order/verify_payment`, data);
-        console.log(res.data);
         return res.data;
 
     }
@@ -65,8 +62,6 @@ export const deleteUserOrder = createAsyncThunk("order/delete", async (id, { rej
                 Authorization: `Bearer ${token}`
             }
         });
-        console.log(res.data);
-
         return res.data;
     } catch (e) {
         toast.error(e?.response?.data?.message);
@@ -117,8 +112,6 @@ export const getAllOrders = createAsyncThunk("order/getAll/infinite", async ({ p
 
 export const orderStatusManage = createAsyncThunk("order/status/infinite", async ({ _id, status }, { rejectWithValue }) => {
     try {
-        console.log(_id, status);
-
         const token = localStorage.getItem("token");
         const res = await axios.post(`${API_URL}order/manage`, { _id, status }, {
             headers: { Authorization: `Bearer ${token}` }

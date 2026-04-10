@@ -28,12 +28,10 @@ const UserDetails = () => {
 
   const [preview, setPreview] = useState(null);
 
-  // get user data
   useEffect(() => {
     dispatch(getUserData());
   }, [dispatch]);
 
-  // set form values
   useEffect(() => {
     if (user) {
       reset({
@@ -55,7 +53,6 @@ const UserDetails = () => {
     }
   }, [user, reset]);
 
-  // submit form
   const onSubmit = async (data) => {
     const formData = new FormData();
 
@@ -66,7 +63,6 @@ const UserDetails = () => {
     dispatch(updateUserProfile(formData));
   };
 
-  // image change
   const handleImageChange = (e) => {
     const file = e.target.files[0];
 
@@ -93,8 +89,6 @@ const UserDetails = () => {
         <h2 className="text-2xl font-semibold mb-8">User Profile</h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          {/* profile section */}
-
           <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
             <div className="relative">
               <img
@@ -115,8 +109,6 @@ const UserDetails = () => {
                 />
               </label>
             </div>
-
-            {/* basic info */}
 
             <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
               <InputField
@@ -142,8 +134,6 @@ const UserDetails = () => {
               />
             </div>
           </div>
-
-          {/* address section */}
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
             <InputField
@@ -195,8 +185,6 @@ const UserDetails = () => {
               error={errors.pincode}
             />
           </div>
-
-          {/* submit button */}
 
           <div className="flex justify-end mt-10">
             <button

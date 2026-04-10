@@ -19,14 +19,10 @@ const CartOrderSummery = ({ cart }) => {
   const handleOptionChange = (e) => {
     setOption(e.target.value);
   };
-  console.log(user.address.length);
-
   const tax = Math.ceil(cart.totalAmount * 0.02);
   const totalPrice = cart.totalAmount + tax;
 
   const openRazorpay = (data) => {
-    console.log(data);
-
     const options = {
       key: data.key,
       amount: data.razorpayOrder.amount,
@@ -57,11 +53,10 @@ const CartOrderSummery = ({ cart }) => {
             dispatch(clearWholeCart());
             navigate("/order_success");
           })
-          .catch((err) => console.log(err));
+          .catch(() => {});
       },
       modal: {
         ondismiss: function () {
-          console.log("cancel", data.razorpayOrder.id);
           dispatch(deleteUserOrder(data.razorpayOrder.id));
         },
       },
@@ -86,10 +81,9 @@ const CartOrderSummery = ({ cart }) => {
       dispatch(createOpOrder(orderData))
         .unwrap()
         .then((res) => {
-          console.log("RESULT ONLINE", res);
           openRazorpay(res);
         })
-        .catch((err) => console.log(err));
+        .catch(() => {});
     } else {
       dispatch(placeCashOnDeliveryOrder(orderData))
         .unwrap()
@@ -97,7 +91,7 @@ const CartOrderSummery = ({ cart }) => {
           dispatch(clearWholeCart());
           navigate("/order_success");
         })
-        .catch((err) => console.log(err));
+        .catch(() => {});
     }
   };
   const canPlaceOrder = user?.address?.length > 0 && cart?.totalAmount > 0;

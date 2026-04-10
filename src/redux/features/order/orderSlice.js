@@ -68,7 +68,6 @@ const orderSlice = createSlice({
                 state.error = null;
             })
             .addCase(verifyUserPayment.fulfilled, (state, action) => {
-                console.log(action);
                 state.loading = false;
                 state.error = null;
             })
@@ -81,7 +80,6 @@ const orderSlice = createSlice({
                 state.error = null;
             })
             .addCase(deleteUserOrder.fulfilled, (state, action) => {
-                console.log(action);
                 state.loading = false;
                 state.error = null;
                 state.key = null;

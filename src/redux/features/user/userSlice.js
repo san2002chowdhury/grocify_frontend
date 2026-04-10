@@ -29,7 +29,6 @@ const userSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(registerUser.pending, (state) => {
-                console.log("Here1");
                 state.loading = true;
                 state.error = null;
             })
@@ -37,7 +36,6 @@ const userSlice = createSlice({
                 state.token = action.payload.token;
                 state.loading = false;
                 state.error = null;
-                console.log(action.payload);
                 state.email = action.payload.user.email;
                 localStorage.setItem("email", action.payload.user.email);
                 localStorage.setItem("token", action.payload.token);
@@ -56,7 +54,6 @@ const userSlice = createSlice({
                 state.error = null;
             })
             .addCase(verifyUserEmail.rejected, (state, action) => {
-                console.log(action);
                 state.loading = false;
                 state.error = action.payload;
             })
@@ -66,14 +63,12 @@ const userSlice = createSlice({
                 state.error = null;
             })
             .addCase(resendVerifyToken.fulfilled, (state, action) => {
-                console.log(action);
                 state.loading = false;
                 state.token = action.payload.token;
                 state.error = null;
                 localStorage.setItem("token", action.payload.token);
             })
             .addCase(resendVerifyToken.rejected, (state, action) => {
-                console.log(action);
                 state.loading = false;
                 state.error = action.payload;
 
@@ -84,7 +79,6 @@ const userSlice = createSlice({
                 state.error = null;
             })
             .addCase(loginUser.fulfilled, (state, action) => {
-                console.log("action user login fulfilled", action.payload);
                 state.loading = false;
                 state.user = action.payload.user;
                 state.token = action.payload.accessToken;
@@ -157,7 +151,6 @@ const userSlice = createSlice({
             })
             .addCase(logoutUser.rejected, (state, action) => {
                 state.loading = false;
-                console.log(action.payload);
                 state.error = action.payload;
             })
             .addCase(getUserData.pending, (state) => {

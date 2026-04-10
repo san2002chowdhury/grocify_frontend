@@ -147,7 +147,7 @@ const ProductDetails = ({ product }) => {
                         .then(() => {
                           navigate("/cart");
                         })
-                        .catch((err) => console.log(err));
+                        .catch(() => {});
                     }}
                   >
                     Buy now

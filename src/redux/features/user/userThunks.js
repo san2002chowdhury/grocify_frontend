@@ -7,9 +7,7 @@ import { API_URL } from "../../../constants/api";
 
 export const registerUser = createAsyncThunk("user/register", async (data, { rejectWithValue }) => {
     try {
-        console.log("Data-->", data);
         const res = await axios.post(`${API_URL}user/register`, data);
-        console.log("result-->", res.data);
         toast.success(res.data.message);
         return res.data;
     } catch (e) {
@@ -24,7 +22,6 @@ export const verifyUserEmail = createAsyncThunk("user/email_verify", async (toke
     try {
         const res = await axios.get(`${API_URL}user/verify/${token}`);
         await new Promise((resolve) => setTimeout(resolve, 3000));
-        console.log("result-->", res.data);
         toast.success(res.data.message);
         return res;
     }
@@ -40,7 +37,6 @@ export const verifyUserEmail = createAsyncThunk("user/email_verify", async (toke
 
 export const resendVerifyToken = createAsyncThunk("user/resend_verify_token", async (data, { rejectWithValue }) => {
     try {
-        console.log(data);
         const res = await axios.post(`${API_URL}user/resend_token`, data);
         await new Promise((resolve) => setTimeout(resolve, 3000));
         toast.success(res.data.message)
@@ -48,7 +44,6 @@ export const resendVerifyToken = createAsyncThunk("user/resend_verify_token", as
 
 
     } catch (e) {
-        console.log(e?.response);
         return rejectWithValue(
             e.response?.data?.message || "Something went wrong!"
         );
@@ -59,15 +54,11 @@ export const resendVerifyToken = createAsyncThunk("user/resend_verify_token", as
 
 export const loginUser = createAsyncThunk("user/login", async (data, { rejectWithValue }) => {
     try {
-        console.log(data);
         const res = await axios.post(`${API_URL}user/login`, data);
-        console.log("result-->", res.data);
         toast.success(res.data.message);
         return res.data;
 
     } catch (e) {
-        console.log(e?.response?.data?.message);
-
         toast.error(e?.response?.data?.message || "Something went wrong!");
         return rejectWithValue(
             e?.response?.data?.message || "Something went wrong!"
@@ -77,14 +68,12 @@ export const loginUser = createAsyncThunk("user/login", async (data, { rejectWit
 
 export const forgotPassword = createAsyncThunk("user/forgot_password", async (data, { rejectWithValue }) => {
     try {
-        console.log(data);
         const res = await axios.post(`${API_URL}user/forgot_password`, data);
         toast.success(res?.data?.message);
         return res.data;
 
     }
     catch (e) {
-        console.log(e?.response?.data?.message);
         toast.error(e?.response?.data?.message || "Something went wrong!");
         return rejectWithValue(
             e?.response?.data?.message || "Something went wrong!"
@@ -94,15 +83,12 @@ export const forgotPassword = createAsyncThunk("user/forgot_password", async (da
 
 export const verifyUserOtp = createAsyncThunk("user/verify_otp", async (data, { rejectWithValue }) => {
     try {
-        console.log(data);
         const res = await axios.post(`${API_URL}user/verify_otp`, data);
         await new Promise((resolve) => setTimeout(resolve, 3000));
-        console.log(res.data);
         toast.success(res?.data?.message)
         return res.data;
     }
     catch (e) {
-        console.log(e?.response?.data?.message);
         toast.error(e?.response?.data?.message || "Something went wrong!");
         return rejectWithValue(
             e?.response?.data?.message || "Something went wrong!"
@@ -112,15 +98,12 @@ export const verifyUserOtp = createAsyncThunk("user/verify_otp", async (data, { 
 
 export const resetUserPassword = createAsyncThunk("user/reset_password", async (data, { rejectWithValue }) => {
     try {
-        console.log(data);
         const res = await axios.post(`${API_URL}user/reset_password`, data);
         await new Promise((resolve) => setTimeout(resolve, 3000));
-        console.log(res);
         toast.success(res?.data?.message);
         return res.data;
     }
     catch (e) {
-        console.log(e?.response?.data?.message);
         toast.error(e?.response?.data?.message || "Something went wrong!");
         return rejectWithValue(
             e?.response?.data?.message || "Something went wrong!"
@@ -130,8 +113,6 @@ export const resetUserPassword = createAsyncThunk("user/reset_password", async (
 
 export const logoutUser = createAsyncThunk("user/logout", async (_, { rejectWithValue }) => {
     try {
-        console.log("token-->", localStorage.getItem("token"));
-
         const token = localStorage.getItem("token");
         const res = await axios.post(
             `${API_URL}user/logout`,
@@ -147,7 +128,6 @@ export const logoutUser = createAsyncThunk("user/logout", async (_, { rejectWith
         return true;
     }
     catch (e) {
-        console.log(e?.response?.data?.message);
         toast.error(e?.response?.data?.message || "Something went wrong!");
         return rejectWithValue(
             e?.response?.data?.message || "Something went wrong!"

@@ -17,7 +17,3 @@ const FilterProduct = ({ sortOption, setSortOption }) => {
 };
 
 export default FilterProduct;
-
-{
-  /* const FilterProduct = ({ sortOption, setSortOption }) => { */
-}

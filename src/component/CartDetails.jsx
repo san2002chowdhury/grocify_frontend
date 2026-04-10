@@ -25,7 +25,7 @@ const CartDetails = ({ cart }) => {
             },
           );
       })
-      .catch((err) => console.log(err));
+      .catch(() => {});
   };
 
   const handleQuantityChange = (id, quantity) => {
@@ -78,8 +78,6 @@ const CartDetails = ({ cart }) => {
                       className="outline-none"
                       value={product.quantity}
                       onChange={(e) => {
-                        console.log(e.target.value);
-                        console.log(product?.product?._id);
                         handleQuantityChange(
                           product?.product?._id,
                           e.target.value,

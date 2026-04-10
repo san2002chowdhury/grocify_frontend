@@ -30,7 +30,7 @@ const MyOrders = () => {
   };
   return (
     <div className="pt-[80px] flex flex-col">
-      {/* CONTENT */}
+     
       <div className="flex-1 max-w-6xl mx-auto p-5 w-full">
         <h1 className="text-2xl font-semibold mb-6">My Orders</h1>
 
@@ -113,8 +113,6 @@ const MyOrders = () => {
           </div>
         )}
       </div>
-
-      {/* THIS PUSHES FOOTER DOWN WHEN NO ORDERS */}
       <div className="mt-auto" />
     </div>
   );

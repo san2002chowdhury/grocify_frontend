@@ -79,16 +79,11 @@ export const getAllProductsByCategory = createAsyncThunk("products/by_category",
 
 export const getProductDetails = createAsyncThunk("product/get_product_details", async (id, { rejectWithValue }) => {
     try {
-        console.log(id);
-
         const res = await axios.get(`${API_URL}product/get/single_product/${id}`);
         await new Promise((resolve) => setTimeout(resolve, 1500));
-        console.log(res);
         return res.data;
     }
     catch (e) {
-        console.log(e);
-
         toast.error(e?.response?.data?.message);
         return rejectWithValue(
             e?.response?.data?.message || "Something went wrong!"
@@ -106,7 +101,6 @@ export const getAllProductsAdvance = createAsyncThunk("product/getAll_products_a
             params: { page, limit, search, sort }
         });
         await new Promise((resolve) => setTimeout(resolve, 1500));
-        console.log(res.data);
         return res.data;
     }
     catch (e) {

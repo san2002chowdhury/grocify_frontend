@@ -87,8 +87,6 @@ const ProductList = () => {
           </div>
         </div>
 
-        {/* LOAD MORE */}
-
         {hasMore && (
           <div className="text-center mt-4">
             <button
