@@ -51,6 +51,7 @@ const ProductList = () => {
                           src={`${API_URL_BASE}${product.images[0]}`}
                           alt="Product"
                           className="w-16"
+                          loading="lazy"
                         />
                       </div>
 

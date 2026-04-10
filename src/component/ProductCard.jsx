@@ -44,6 +44,7 @@ const ProductCard = ({ product, cart }) => {
           className="group-hover:scale-105 transition duration-300 object-contain h-full"
           src={`${API_URL_BASE}${product?.images[0]}`}
           alt={product?.name}
+          loading="lazy"
         />
       </div>
 
@@ -70,6 +71,7 @@ const ProductCard = ({ product, cart }) => {
                     : assest.starIconDull
                 }
                 alt="star"
+                loading="lazy"
                 className="w-3 md:w-3.5"
               />
             ))}
@@ -105,6 +107,7 @@ const ProductCard = ({ product, cart }) => {
                     src={assest.cartIconForCard}
                     alt="cart"
                     className="w-3"
+                    loading="lazy"
                   />
                   Add
                 </>

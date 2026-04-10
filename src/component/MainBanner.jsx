@@ -9,11 +9,13 @@ const MainBanner = () => {
         src={assest.mainBannerBg}
         alt="banner"
         className="w-full hidden md:block"
+        loading="lazy"
       />
       <img
         src={assest.mainBannerBgSm}
         alt="banner"
         className="w-full md:hidden"
+        loading="lazy"
       />
       <div className="absolute inset-0 flex flex-col items-center md:items-start justify-end md:justify-center pb-24 md:pb-0 px-4 md:pl-18 lg:pl-24">
         <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center md:text-left max-w-72 md:max-w-80 lg:max-w-[500px] leading-tight lg:leading-15">
@@ -30,6 +32,7 @@ const MainBanner = () => {
               className="md:hidden transition group-focus:translate-x-1"
               src={assest.whiteArrowIcon}
               alt="arrowIcon"
+              loading="lazy"
             />
           </Link>
 
@@ -42,6 +45,7 @@ const MainBanner = () => {
               className="transition group-hover:translate-x-1"
               src={assest.blackArrowIcon}
               alt="arrowIcon"
+              loading="lazy"
             />
           </Link>
         </div>

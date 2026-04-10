@@ -22,7 +22,7 @@ const Categories = () => {
                 navigate(`/products/${item?._id}`, {
                   state: { category: item?.name },
                 });
-                
+
                 window.scrollTo(0, 0);
               }}
             >
@@ -30,6 +30,7 @@ const Categories = () => {
                 className="w-28 h-28 object-contain group-hover:scale-110 transition duration-300"
                 src={`${API_URL_BASE}${item?.image}`}
                 alt={item?.name}
+                loading="lazy"
               />
 
               <p className="text-sm font-medium mt-4 truncate w-full">

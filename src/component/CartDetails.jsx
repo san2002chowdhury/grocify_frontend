@@ -62,6 +62,7 @@ const CartDetails = ({ cart }) => {
                   className="max-w-full h-full object-cover"
                   src={`${API_URL_BASE}${product?.product?.images[0]}`}
                   alt={product?.product.name}
+                  loading="lazy"
                 />
               </div>
               <div>
@@ -108,6 +109,7 @@ const CartDetails = ({ cart }) => {
                 src={assest.removeIcon}
                 alt="icon"
                 className="inline-block w-6 h-6"
+                loading="lazy"
               />
             </button>
           </div>
@@ -122,6 +124,7 @@ const CartDetails = ({ cart }) => {
           src={assest.arrowIconColored}
           alt="icon"
           className="group-hover:-translate-x-1 transition"
+          loading="lazy"
         />
         Continue Shopping
       </button>
